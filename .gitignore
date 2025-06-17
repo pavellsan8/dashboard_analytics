@@ -44,3 +44,5 @@ Thumbs.db
 
 # Optional OS generated files
 *.log
+
+.vite
