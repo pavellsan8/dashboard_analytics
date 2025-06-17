@@ -11,23 +11,15 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Routes
-// app.use('/api/dashboard', dashboardRoutes);
-
-// Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Server is running' });
-});
+const apiRoutes = require('./routes');
+app.use('/api/v1', apiRoutes);
 
 // Start server
 async function startServer() {
   try {
     await sequelize.authenticate();
-    console.log('✅ Database connection established successfully.');
-    
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`📊 Dashboard API: http://localhost:${PORT}/api/dashboard/data`);
+      console.log(`📊 Dashboard API: http://localhost:${PORT}`);
     });
   } catch (error) {
     console.error('❌ Unable to connect to database:', error);
