@@ -1,6 +1,6 @@
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const customerStatsQuery = require('../queries/customerStatsQuery')
+const customerStatsQuery = require('../queries/customerStatsQuery');
 
 class customerSegmentService {
     async getPercentageSegmentStat() {

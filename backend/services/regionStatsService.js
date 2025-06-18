@@ -1,7 +1,7 @@
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const { calculateGrowthBetweenValues } = require('../utils/function_utils')
-const regionStatsQuery = require('../queries/regionStatsQuery')
+const { calculateGrowthBetweenValues } = require('../utils/function_utils');
+const regionStatsQuery = require('../queries/regionStatsQuery');
 
 const getTopRegionSales = async () => {
     try {
