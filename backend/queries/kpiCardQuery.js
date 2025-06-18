@@ -4,7 +4,7 @@ const kpiCardQuery = {
             YEAR(order_date) AS tahun, 
             SUM(sales) AS total_penjualan
         FROM transactions
-         WHERE YEAR(order_date) IN (2017, 2018)
+        WHERE YEAR(order_date) IN (2017, 2018)
         GROUP BY YEAR(order_date)
         ORDER BY tahun
     `,
