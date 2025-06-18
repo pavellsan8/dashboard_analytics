@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import KPIOverview from './components/KPI/kpiOverview';
 import Sidebar  from './components/Sidebar/Sidebar';
-import { dummyKPIData } from './data/kpiCardData';
 import './styles/App.css';
 
 function App() {
@@ -23,12 +22,12 @@ function App() {
       {/* Main Content */}
       <div className="flex-1 p-8">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 text-center">
+          <h1 className="text-3xl font-bold text-gray-900">
             Sales Analytics Dashboard
           </h1>
         </header>
         <main>
-          <KPIOverview data={dummyKPIData} />
+          <KPIOverview />
         </main>
       </div>
     </div>

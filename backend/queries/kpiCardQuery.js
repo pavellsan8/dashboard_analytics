@@ -2,7 +2,7 @@ const kpiCardQuery = {
     getTotalSalesQuery: `
         SELECT 
             YEAR(order_date) AS tahun, 
-            SUM(sales) AS total_penjualan
+            SUM(sales) AS total_sales
         FROM transactions
         WHERE YEAR(order_date) IN (2017, 2018)
         GROUP BY YEAR(order_date)

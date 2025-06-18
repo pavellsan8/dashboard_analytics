@@ -40,6 +40,7 @@ const calculateGrowth = (data, valueKey) => {
         year2018: currentValue,
         growthFormatted: `${sign}${growthPercentage.toFixed(2)}%`,
         isPositive: isPositive,
+        icon: valueKey
     };
 };
 

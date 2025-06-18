@@ -14,7 +14,7 @@ const kpiCardController = {
             res.json({
                 status: 200,
                 data: [
-                    calculateGrowth(totalSales, 'total_penjualan'),
+                    calculateGrowth(totalSales, 'total_sales'),
                     calculateGrowth(totalCustomer, 'total_customer'),
                     calculateGrowth(totalOrder, 'total_order'),
                     calculateGrowth(totalAov, 'average_order_value')

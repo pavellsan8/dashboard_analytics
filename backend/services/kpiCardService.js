@@ -8,7 +8,7 @@ class kpiCardService {
             const result = await Transaction.findAll({
                 attributes: [
                     [sequelize.fn('YEAR', sequelize.col('order_date')), 'tahun'],
-                    [sequelize.fn('SUM', sequelize.col('sales')), 'total_penjualan']
+                    [sequelize.fn('SUM', sequelize.col('sales')), 'total_sales']
                 ],
                 where: sequelize.where(sequelize.fn('YEAR', sequelize.col('order_date')), {
                     [Op.in]: [2017, 2018]
