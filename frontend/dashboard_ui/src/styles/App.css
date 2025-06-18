@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Custom components if needed */
+@layer components {
+  .dashboard-card {
+    @apply bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .kpi-value {
+    @apply text-2xl font-bold text-gray-900;
+  }
+  
+  .kpi-title {
+    @apply text-sm font-medium text-gray-600;
+  }
+  
+  .kpi-change-positive {
+    @apply text-green-600;
+  }
+  
+  .kpi-change-negative {
+    @apply text-red-600;
+  }
+}
