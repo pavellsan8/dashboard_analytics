@@ -1,4 +1,4 @@
-const kpiCardData = {
+const kpiCardQuery = {
     getTotalSalesQuery: `
         SELECT 
             YEAR(order_date) AS tahun, 
@@ -37,4 +37,4 @@ const kpiCardData = {
     `
 }
 
-module.exports = kpiCardData;
+module.exports = kpiCardQuery;
