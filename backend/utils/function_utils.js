@@ -33,11 +33,13 @@ const calculateGrowth = (data, valueKey) => {
     const previousValue = parseFloat(year2017[valueKey]);
     const growthPercentage = ((currentValue - previousValue) / previousValue) * 100;
     const sign = growthPercentage >= 0 ? '+' : '';
+    const isPositive = growthPercentage >= 0;
 
     return {
         value: valueKey,
         year2018: currentValue,
-        growthFormatted: `${sign}${growthPercentage.toFixed(2)}%`
+        growthFormatted: `${sign}${growthPercentage.toFixed(2)}%`,
+        isPositive: isPositive,
     };
 };
 
