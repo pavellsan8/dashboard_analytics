@@ -77,7 +77,7 @@ export const SalesTrends = ({ timeRange }) => {
     <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold text-gray-800">Sales Trends</h2>
-        <div className="text-sm text-gray-500 capitalize">{timeRange} view</div>
+        <div className="text-sm text-gray-500 capitalize">Yearly view</div>
       </div>
       {/* Tabs */}
       <div className="flex border-b mb-4">

@@ -1,7 +1,6 @@
 import {
   MapPin,
   ShoppingBag,
-  Filter,
   RefreshCw,
 } from 'lucide-react'
 

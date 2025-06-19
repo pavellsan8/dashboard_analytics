@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   BarChart,
   Bar,
@@ -16,19 +16,16 @@ export const ProductPerformance = ({ selectedCategory }) => {
     {
       name: 'Furniture',
       sales: 482000,
-      profit: 96400,
       color: '#3B82F6',
     },
     {
       name: 'Office Supplies',
       sales: 356000,
-      profit: 85440,
       color: '#10B981',
     },
     {
       name: 'Technology',
       sales: 620200,
-      profit: 124040,
       color: '#6366F1',
     },
   ]
@@ -37,55 +34,46 @@ export const ProductPerformance = ({ selectedCategory }) => {
       name: 'Chairs',
       category: 'Furniture',
       sales: 182000,
-      profit: 36400,
     },
     {
       name: 'Tables',
       category: 'Furniture',
       sales: 154000,
-      profit: 30800,
     },
     {
       name: 'Storage',
       category: 'Furniture',
       sales: 146000,
-      profit: 29200,
     },
     {
       name: 'Paper',
       category: 'Office Supplies',
       sales: 98000,
-      profit: 23520,
     },
     {
       name: 'Binders',
       category: 'Office Supplies',
       sales: 87000,
-      profit: 20880,
     },
     {
       name: 'Art',
       category: 'Office Supplies',
       sales: 78000,
-      profit: 18720,
     },
     {
       name: 'Phones',
       category: 'Technology',
       sales: 245000,
-      profit: 49000,
     },
     {
       name: 'Computers',
       category: 'Technology',
       sales: 198000,
-      profit: 39600,
     },
     {
       name: 'Accessories',
       category: 'Technology',
       sales: 177200,
-      profit: 35440,
     },
   ]
   // Filter subcategories based on selected category
@@ -180,7 +168,6 @@ export const ProductPerformance = ({ selectedCategory }) => {
               <Tooltip />
               <Legend />
               <Bar dataKey="sales" name="Sales ($)" fill="#3B82F6" />
-              <Bar dataKey="profit" name="Profit ($)" fill="#10B981" />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -204,7 +191,6 @@ export const ProductPerformance = ({ selectedCategory }) => {
               <Tooltip />
               <Legend />
               <Bar dataKey="sales" name="Sales ($)" fill="#3B82F6" />
-              <Bar dataKey="profit" name="Profit ($)" fill="#10B981" />
             </BarChart>
           </ResponsiveContainer>
         </div>
