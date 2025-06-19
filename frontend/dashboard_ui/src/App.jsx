@@ -4,7 +4,7 @@ import Sidebar  from './components/Sidebar/Sidebar';
 import { GeographicAnalysis } from './components/Geographic/Geographic';
 import { CustomerInsights } from './components/Customer/Customer';
 import { ProductPerformance } from './components/Product/Product';
-import { SalesTrends } from './components/Sales/Sales';
+import { SalesTrends } from './components/Sales/SalesTrend';
 import { DetailedTables } from './components/DetailTransaction/DetailTransaction';
 
 import './styles/App.css';
