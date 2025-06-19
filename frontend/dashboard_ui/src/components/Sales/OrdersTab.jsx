@@ -97,7 +97,7 @@ export const OrdersTab = () => {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis 
-            domain={['dataMin', 'dataMax']}
+            domain={[0, 3200]}
             tickFormatter={(value) => `${(value / 1000).toFixed(1)}K`}
             />
           <Tooltip 

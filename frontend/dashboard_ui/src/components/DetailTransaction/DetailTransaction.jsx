@@ -126,7 +126,7 @@ export const DetailedTables = () => {
           <input
             type="text"
             placeholder="Search by Order ID, Customer, Product..."
-            className="pl-10 pr-10 py-2 border border-gray-300 rounded w-full bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="pl-10 pr-10 py-2 text-sm border border-gray-300 rounded w-full bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             value={searchTerm}
             onChange={handleSearchChange}
           />
