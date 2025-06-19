@@ -23,6 +23,7 @@ const productPerformanceQuery = {
         SELECT 
             b.product_name,
             MAX(b.category) AS category,
+            b.sub_category,
             SUM(CASE WHEN YEAR(a.order_date) = 2018 THEN a.sales ELSE 0 END) AS sales_2018
         FROM transactions a
         JOIN products b

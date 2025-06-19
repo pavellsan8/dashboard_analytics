@@ -55,6 +55,7 @@ class productPerformanceService {
             return results.map(item => ({
                 productName: item.product_name,
                 category: item.category,
+                subCategory: item.sub_category,
                 sales: parseInt(item.sales_2018, 10),
             }));
         } catch (error) {
