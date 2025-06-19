@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { MapPinIcon, TrendingUpIcon, TrendingDownIcon, Loader2 } from 'lucide-react'
-import { getTopRegionData } from '../../services/api'
+import { TrendingUpIcon, TrendingDownIcon, Loader2 } from 'lucide-react'
+import { getTopRegionData } from '../../services/Api'
+
 export const GeographicAnalysis = ({
   selectedRegion = 'all',
-  selectedCategory = 'all', // Add category filter
 }) => {
   const [topRegions, setTopRegions] = useState([])
   const [loading, setLoading] = useState(true)
@@ -20,9 +20,6 @@ export const GeographicAnalysis = ({
         if (selectedRegion && selectedRegion !== 'all') {
           params.append('state', selectedRegion)
         }
-        if (selectedCategory && selectedCategory !== 'all') {
-          params.append('category', selectedCategory)
-        }
         
         const queryString = params.toString()
         const endpoint = queryString ? `/top-region-data?${queryString}` : '/top-region-data'
@@ -38,9 +35,8 @@ export const GeographicAnalysis = ({
     }
 
     fetchRegionData()
-  }, [selectedRegion, selectedCategory]) // Re-fetch when filters change
+  }, [selectedRegion]) // Re-fetch when filters change
 
-  // Safe region display logic
   const getRegionDisplay = () => {
     if (!selectedRegion || selectedRegion === 'all') {
       return 'All Regions'
@@ -49,7 +45,7 @@ export const GeographicAnalysis = ({
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 mt-8">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold text-gray-800">
           Top Region Sales
@@ -58,24 +54,7 @@ export const GeographicAnalysis = ({
           {getRegionDisplay()}
         </div>
       </div>
-
-      {/* Map Placeholder */}
-      {/* <div className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center mb-4">
-        <div className="text-center">
-          <MapPinIcon size={48} className="mx-auto text-gray-400 mb-2" />
-          <p className="text-gray-500">Map visualization would appear here</p>
-          <p className="text-sm text-gray-400">
-            Using Leaflet to display sales by region
-          </p>
-        </div>
-      </div> */}
-
-      {/* Top Regions Table */}
       <div>
-        {/* <h3 className="text-lg font-medium text-gray-700 mb-2">
-          Top Performing Regions
-        </h3> */}
-        
         {loading ? (
           <div className="flex items-center justify-center py-8">
             <Loader2 className="animate-spin mr-2" size={20} />

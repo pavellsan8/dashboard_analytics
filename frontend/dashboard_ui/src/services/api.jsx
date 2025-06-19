@@ -14,3 +14,4 @@ const fetchData = async (endpoint) => {
 
 export const getKpiData = () => fetchData('/kpi-card-data');
 export const getTopRegionData = (customEndpoint = '/top-region-data') => fetchData(customEndpoint);
+export const getCustomerInsightData = (customEndpoint = '/customer-segment-data') => fetchData(customEndpoint);

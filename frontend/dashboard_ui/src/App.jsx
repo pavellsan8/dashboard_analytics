@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import KPIOverview from './components/KPI/kpiOverview';
 import Sidebar  from './components/Sidebar/Sidebar';
 import { GeographicAnalysis } from './components/Geographic/Geographic';
+import { CustomerInsights } from './components/Customer/Customer';
 
 import './styles/App.css';
 
@@ -34,7 +35,14 @@ function App() {
             Sales Dashboard
           </h1>
           <KPIOverview />
-          <GeographicAnalysis selectedRegion={selectedRegion} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
+            <div className="bg-white p-4 rounded-lg shadow-sm h-full">
+              <GeographicAnalysis selectedRegion={selectedRegion} />
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow-sm h-full">
+              <CustomerInsights selectedRegion={selectedRegion} />
+            </div>
+          </div>
         </div>
       </div>
     </div>

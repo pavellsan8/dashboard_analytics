@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import KPICard from '../../components/KPI/kpiCard';
-import { getKpiData } from '../../services/api';
+import { getKpiData } from '../../services/Api';
 import { formatKpiData } from '../../utils/formatKpiCard';
 
 const KPIOverview = () => {
