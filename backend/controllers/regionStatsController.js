@@ -3,7 +3,7 @@ const regionStatsService = require('../services/regionStatsService');
 const regionStatsController = {
     async getTopRegionSalesData(req, res) {
         try {
-            const topRegionSales = await regionStatsService.getTopRegionSales();
+            const topRegionSales = await regionStatsService.getTopRegionSales(req);
 
             res.status(200).json({
                 status: 200,

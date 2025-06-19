@@ -3,36 +3,58 @@ const sequelize = require('../config/database');
 const customerStatsQuery = require('../queries/customerStatsQuery');
 
 class customerSegmentService {
-    async getPercentageSegmentStat() {
+    async getPercentageSegmentStat(req) {
         try {
-            const query = customerStatsQuery.customerPercentageSegmentQuery
+            const state = req.query.state || null;
+            let query = customerStatsQuery.customerPercentageSegmentBaseQuery;
+
+            const replacements = [];
+            if (state) {
+                query += ` AND c.state = ?`;
+                replacements.push(state);
+            }
+
+            query += customerStatsQuery.customerPercentageSegmentSuffix;
             const results = await sequelize.query(query, {
-                type: QueryTypes.SELECT
+                type: QueryTypes.SELECT,
+                replacements,
             });
 
             return results.map(item => ({
                 segment: item.segment,
                 total: parseInt(item.jumlah_segment),
-                percentage: parseFloat(item.persentase_segment).toFixed(2) + '%'
+                percentage: parseFloat(item.persentase_segment).toFixed(2) + '%',
             }));
         } catch (error) {
+            console.error('Error in getPercentageSegmentStat:', error);
             throw error;
         }
     }
-    
-    async getTopCustomerSales() {
+
+    async getTopCustomerSales(req) {
         try {
-            const query = customerStatsQuery.topCustomerSalesStats;
+            const state = req.query.state || null;
+            let query = customerStatsQuery.topCustomerSalesBaseQuery;
+
+            const replacements = [];
+            if (state) {
+                query += ` WHERE c.state = ?`;
+                replacements.push(state);
+            }
+
+            query += customerStatsQuery.topCustomerSalesSuffix;
             const results = await sequelize.query(query, {
-                type: QueryTypes.SELECT
+                type: QueryTypes.SELECT,
+                replacements,
             });
 
             return results.map(item => ({
                 customerName: item.customer_name,
                 segment: item.segment,
-                sales2018: parseFloat(item.sales_2018).toFixed(2)
+                sales2018: parseInt(item.sales_2018, 10),
             }));
         } catch (error) {
+            console.error('Error in getTopCustomerSales:', error);
             throw error;
         }
     }

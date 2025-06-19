@@ -1,5 +1,5 @@
 const customerStatsQuery = {
-    customerPercentageSegmentQuery: `
+    customerPercentageSegmentBaseQuery: `
         SELECT 
             b.segment,
             COUNT(*) AS jumlah_segment,
@@ -11,11 +11,15 @@ const customerStatsQuery = {
         FROM transactions a
         JOIN customers b
             ON a.customer_id = b.customer_id
+        JOIN locations c
+            ON b.postal_code = c.postal_code
         WHERE YEAR(a.order_date) = 2018
+    `,
+    customerPercentageSegmentSuffix: `
         GROUP BY b.segment
         ORDER BY jumlah_segment DESC
     `,
-    topCustomerSalesStats: `
+    topCustomerSalesBaseQuery: `
         SELECT 
             b.customer_name,
             MAX(b.segment) AS segment,
@@ -25,10 +29,12 @@ const customerStatsQuery = {
             ON a.customer_id = b.customer_id
         JOIN locations c
             ON b.postal_code = c.postal_code
+    `,
+    topCustomerSalesSuffix: `
         GROUP BY b.customer_name
-        ORDER BY sales_2018 desc
+        ORDER BY sales_2018 DESC
         LIMIT 5
-    `
-}
+    `,
+};
 
 module.exports = customerStatsQuery;

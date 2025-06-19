@@ -4,8 +4,8 @@ const customerStatsController = {
     async getCustomerStats(req, res) {
         try {
             const [segmentStats, topCustomers] = await Promise.all([
-                customerStatsService.getPercentageSegmentStat(),
-                customerStatsService.getTopCustomerSales()
+                customerStatsService.getPercentageSegmentStat(req),
+                customerStatsService.getTopCustomerSales(req)
             ]);
 
             res.status(200).json({

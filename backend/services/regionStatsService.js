@@ -3,12 +3,21 @@ const sequelize = require('../config/database');
 const { calculateGrowthBetweenValues } = require('../utils/function_utils');
 const regionStatsQuery = require('../queries/regionStatsQuery');
 
-const getTopRegionSales = async () => {
+const getTopRegionSales = async (req) => {
     try {
-        const query = regionStatsQuery.getTopRegionSalesQuery
+        const state = req.query.state || null;
+        let query = regionStatsQuery.getTopRegionSalesBaseQuery;
 
+        const replacements = [];
+        if (state) {
+            query += ` AND c.state = ?`;
+            replacements.push(state);
+        }
+
+        query += regionStatsQuery.getTopRegionSalesSuffix;
         const results = await sequelize.query(query, {
-            type: QueryTypes.SELECT
+            type: QueryTypes.SELECT,
+            replacements,
         });
 
         return results.map(item => ({
@@ -19,8 +28,8 @@ const getTopRegionSales = async () => {
                 parseFloat(item.sales_2017)
             )
         }));
-
     } catch (error) {
+        console.error('Error in getTopRegionSales:', error);
         throw error;
     }
 };

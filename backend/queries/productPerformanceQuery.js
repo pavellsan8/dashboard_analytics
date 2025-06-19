@@ -19,7 +19,7 @@ const productPerformanceQuery = {
         GROUP BY b.sub_category
         ORDER BY sales_2018 desc
     `,
-    topProductSalesDataQuery: `
+    topProductSalesBaseQuery: `
         SELECT 
             b.product_name,
             MAX(b.category) AS category,
@@ -27,10 +27,12 @@ const productPerformanceQuery = {
         FROM transactions a
         JOIN products b
             ON a.product_id = b.product_id
+    `,
+    topProductSalesSuffix: `
         GROUP BY b.product_id
-        ORDER BY sales_2018 desc
+        ORDER BY sales_2018 DESC
         LIMIT 5
-    `
+    `,
 }
 
 module.exports = productPerformanceQuery;

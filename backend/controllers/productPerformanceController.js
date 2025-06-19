@@ -37,7 +37,7 @@ const productPerformanceController = {
 
     async getTopProducts(req, res) {
         try {
-            const topProducts = await productPerformanceService.getTopProductSales();
+            const topProducts = await productPerformanceService.getTopProductSales(req);
             
             res.status(200).json({
                 status: 200,
