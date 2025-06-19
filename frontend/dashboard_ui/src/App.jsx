@@ -3,6 +3,9 @@ import KPIOverview from './components/KPI/kpiOverview';
 import Sidebar  from './components/Sidebar/Sidebar';
 import { GeographicAnalysis } from './components/Geographic/Geographic';
 import { CustomerInsights } from './components/Customer/Customer';
+import { ProductPerformance } from './components/Product/Product';
+import { SalesTrends } from './components/Sales/Sales';
+import { DetailedTables } from './components/DetailTransaction/DetailTransaction';
 
 import './styles/App.css';
 
@@ -42,6 +45,15 @@ function App() {
             <div className="bg-white p-4 rounded-lg shadow-sm h-full">
               <CustomerInsights selectedRegion={selectedRegion} />
             </div>
+          </div>
+          <div className="mt-6">
+            <ProductPerformance selectedCategory={selectedCategory} />
+          </div>
+          <div className="mt-6">
+            <SalesTrends selectedCategory={selectedCategory} />
+          </div>
+          <div className="mt-6">
+            <DetailedTables />
           </div>
         </div>
       </div>
