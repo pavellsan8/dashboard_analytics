@@ -37,12 +37,8 @@ export const CustomerInsights = ({ selectedRegion = 'all' }) => {
       setError(null);
       
       try {
-        // Construct the correct endpoint based on selectedRegion
-        const endpoint = selectedRegion === 'all' 
-          ? '/customer-segment-data' 
-          : `/customer-segment-data?state=${selectedRegion}`;
-        
-        const data = await getCustomerInsightData(endpoint);
+        const params = selectedRegion !== 'all' ? { state: selectedRegion } : {};
+        const data = await getCustomerInsightData(params);
         
         if (data && data.customerSegments && data.topCustomers) {
           // Transform customer segments data for pie chart

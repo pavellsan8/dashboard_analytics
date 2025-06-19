@@ -16,8 +16,8 @@ const fetchData = async (endpoint, params = {}) => {
 };
 
 export const getKpiData = () => fetchData('/kpi-card-data');
-export const getTopRegionData = (customEndpoint = '/top-region-data') => fetchData(customEndpoint);
-export const getCustomerInsightData = (customEndpoint = '/customer-segment-data') => fetchData(customEndpoint);
+export const getTopRegionData = (params = {}) => fetchData('/top-region-data', params);
+export const getCustomerInsightData = (params = {}) => fetchData('/customer-segment-data', params);
 export const getCategorySalesData = () => fetchData('/product-performance/category-stats');
 export const getSubCategorySalesData = () => fetchData('/product-performance/sub-category-stats');
 export const getTopProductsData = (params = {}) => fetchData('/product-performance/top-products', params);

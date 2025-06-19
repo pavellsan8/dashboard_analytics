@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react'
 import { TrendingUpIcon, TrendingDownIcon, Loader2 } from 'lucide-react'
 import { getTopRegionData } from '../../services/Api'
 
-export const GeographicAnalysis = ({
-  selectedRegion = 'all',
-}) => {
+export const GeographicAnalysis = ({ selectedRegion = 'all' }) => {
   const [topRegions, setTopRegions] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -15,17 +13,9 @@ export const GeographicAnalysis = ({
       setError(null)
       
       try {
-        // Build query parameters
-        const params = new URLSearchParams()
-        if (selectedRegion && selectedRegion !== 'all') {
-          params.append('state', selectedRegion)
-        }
-        
-        const queryString = params.toString()
-        const endpoint = queryString ? `/top-region-data?${queryString}` : '/top-region-data'
-        
-        const data = await getTopRegionData(endpoint)
-        setTopRegions(data || [])
+        const params = selectedRegion !== 'all' ? { state: selectedRegion } : {};
+        const data = await getTopRegionData(params);
+        setTopRegions(data || []);
       } catch (err) {
         setError('Failed to load region data')
         console.error('Error fetching region data:', err)
@@ -35,7 +25,7 @@ export const GeographicAnalysis = ({
     }
 
     fetchRegionData()
-  }, [selectedRegion]) // Re-fetch when filters change
+  }, [selectedRegion]);
 
   const getRegionDisplay = () => {
     if (!selectedRegion || selectedRegion === 'all') {
