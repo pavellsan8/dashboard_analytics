@@ -21,9 +21,9 @@ const getTopRegionSales = async (req) => {
         });
 
         return results.map(item => ({
-            country: item.country,
-            year2018: parseFloat(item.sales_2018),
-            growthFormatted: calculateGrowthBetweenValues(
+            name: item.country,
+            sales: parseFloat(item.sales_2018),
+            growth: calculateGrowthBetweenValues(
                 parseFloat(item.sales_2018),
                 parseFloat(item.sales_2017)
             )

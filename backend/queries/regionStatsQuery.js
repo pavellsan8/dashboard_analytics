@@ -14,7 +14,7 @@ const regionStatsQuery = {
     getTopRegionSalesSuffix: `
         GROUP BY c.country
         ORDER BY sales_2018 DESC
-        LIMIT 5
+        LIMIT 10
     `,
 };
 
