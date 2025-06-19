@@ -13,6 +13,7 @@ class DetailTransactionService {
             );
 
             return results.map(item => ({
+                rowId: item.row_id,
                 orderId: item.order_id,
                 orderDate: item.order_date,
                 customerName: item.customer_name,

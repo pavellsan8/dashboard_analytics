@@ -1,6 +1,7 @@
 const transactionDetailQuery = {
     getListDetailTransactionQuery: `
-        SELECT 
+        SELECT
+            a.row_id,
             a.order_id,
             a.order_date,
             b.customer_name,
