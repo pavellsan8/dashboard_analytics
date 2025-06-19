@@ -48,7 +48,12 @@ const KPIOverview = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold text-gray-900 mb-4">Overview</h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-semibold text-gray-900">Overview</h2>
+        <div className="text-sm text-gray-500 capitalize">
+          Showing yearly data
+        </div>
+      </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {kpiData.map((item) => (
           <KPICard

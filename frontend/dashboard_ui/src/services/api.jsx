@@ -1,15 +1,15 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-export const getKpiData = async () => {
+const fetchData = async (endpoint) => {
   try {
-    const response = await fetch(`${BASE_URL}/kpi-card-data`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch KPI data');
-    }
+    const response = await fetch(`${BASE_URL}${endpoint}`);
+    if (!response.ok) throw new Error(`Failed to fetch ${endpoint}`);
     const result = await response.json();
-    return result.data; 
+    return result.data;
   } catch (error) {
-    console.error('Error fetching KPI data:', error);
+    console.error(`Error fetching ${endpoint}:`, error);
     return [];
   }
 };
+
+export const getKpiData = () => fetchData('/kpi-card-data');

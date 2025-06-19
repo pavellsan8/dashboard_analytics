@@ -3,7 +3,7 @@ const KPICard = ({ title, value, change, isPositive, icon }) => {
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
+          <p className="text-sm font-medium text-gray-600 mb-2">{title}</p>
           <p className="text-2xl font-bold text-gray-900">{value}</p>
           <div className="flex items-center mt-2">
             <span
@@ -11,7 +11,14 @@ const KPICard = ({ title, value, change, isPositive, icon }) => {
                 isPositive ? 'text-green-600' : 'text-red-600'
               }`}
             >
-              {change} vs previous period
+              {change}
+            </span>
+            <span
+              className={`text-sm ml-1 ${
+                isPositive ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
+              vs previous period
             </span>
           </div>
         </div>
