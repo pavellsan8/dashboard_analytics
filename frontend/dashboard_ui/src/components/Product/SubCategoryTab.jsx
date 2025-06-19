@@ -42,17 +42,6 @@ export const SubcategoriesTab = ({}) => {
     loadData()
   }, [])
 
-//   const filterByCategory = (data, category) => {
-//     const categoryMapping = {
-//       furniture: ['Chairs', 'Tables', 'Storage'],
-//       'office supplies': ['Paper', 'Binders', 'Art'],
-//       technology: ['Phones', 'Computers', 'Accessories', 'Appliances']
-//     }
-    
-//     const subcategories = categoryMapping[category.toLowerCase()] || []
-//     return data.filter(item => subcategories.includes(item.name))
-//   }
-
   if (loading) {
     return (
       <div className="h-[300px] flex items-center justify-center">
