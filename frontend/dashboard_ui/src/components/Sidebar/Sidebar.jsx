@@ -10,6 +10,7 @@ function Sidebar({
   setSelectedRegion,
   selectedCategory,
   setSelectedCategory,
+  resetFilters, // Add this prop
 }) {
   return (
     <div className="w-64 min-h-screen bg-white border-r border-gray-200 p-4 hidden md:block">
@@ -57,7 +58,10 @@ function Sidebar({
 
       {/* Reset Filters Button */}
       <div className="mt-4">
-        <button className="flex items-center justify-center w-full py-2 px-4 text-gray-600 hover:text-gray-800 transition-colors">
+        <button 
+          onClick={resetFilters}
+          className="flex items-center justify-center w-full py-2 px-4 text-gray-600 hover:text-gray-800 hover:bg-gray-50 rounded transition-colors"
+        >
           <RefreshCw size={16} className="mr-2" />
           <span>Reset Filters</span>
         </button>

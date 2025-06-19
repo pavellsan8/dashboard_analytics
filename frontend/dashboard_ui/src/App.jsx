@@ -1,37 +1,44 @@
-// src/App.jsx
 import React, { useState } from 'react';
 import KPIOverview from './components/KPI/kpiOverview';
 import Sidebar  from './components/Sidebar/Sidebar';
+import { GeographicAnalysis } from './components/Geographic/Geographic';
+
 import './styles/App.css';
 
 function App() {
-  const [timeRange, setTimeRange] = useState('yearly');
-  const [selectedRegion, setSelectedRegion] = useState('all');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedRegion, setSelectedRegion] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState('all')
+
+  const resetFilters = () => {
+    setSelectedRegion('all')
+    setSelectedCategory('all')
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <Sidebar
-        selectedRegion={selectedRegion}
-        setSelectedRegion={setSelectedRegion}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
-      
+      <div className="sticky top-0 h-screen">
+        <Sidebar
+          selectedRegion={selectedRegion}
+          setSelectedRegion={setSelectedRegion}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          resetFilters={resetFilters}
+        />
+      </div>
+
       {/* Main Content */}
-      <div className="flex-1 p-8">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Sales Analytics Dashboard
+      <div className="flex-1 overflow-y-auto p-6">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-2xl font-bold text-gray-800 mb-6">
+            Sales Dashboard
           </h1>
-        </header>
-        <main>
           <KPIOverview />
-        </main>
+          <GeographicAnalysis selectedRegion={selectedRegion} />
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
